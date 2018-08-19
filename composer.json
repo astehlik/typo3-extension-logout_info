@@ -1,0 +1,46 @@
+{
+	"name": "de-swebhosting-typo3-extension/logout-info",
+	"description": "Writes the reason of Backend logouts to the Backend log.",
+	"type": "typo3-cms-extension",
+	"license": "GPL-3.0+",
+	"require": {
+		"php": ">=7.1.0",
+		"typo3/cms-core": "^9.3"
+	},
+	"replace": {
+		"logout_info": "self.version",
+		"typo3-ter/logout-info": "self.version"
+	},
+	"require-dev": {
+		"nimut/testing-framework": "^4.0",
+		"squizlabs/php_codesniffer": "^3.1",
+		"de-swebhosting/php-codestyle": "dev-master"
+	},
+	"autoload": {
+		"psr-4": {
+			"Sto\\LogoutInfo\\": "Classes/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Sto\\LogoutInfo\\Tests\\": "Tests"
+		}
+	},
+	"config": {
+		"vendor-dir": ".Build/vendor",
+		"bin-dir": ".Build/bin"
+	},
+	"scripts": {
+		"post-autoload-dump": [
+			"mkdir -p .Build/Web/typo3conf/ext/",
+			"[ -L .Build/Web/typo3conf/ext/logout_info ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/logout_info"
+		]
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "logout_info",
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"web-dir": ".Build/Web"
+		}
+	}
+}

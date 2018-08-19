@@ -1,0 +1,4 @@
+/.Build
+/codesniffer
+/var
+/composer.lock
