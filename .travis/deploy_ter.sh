@@ -5,7 +5,7 @@ set -ev
 phpenv config-rm xdebug.ini
 
 # Rename our working directory, required for Extension upload to TER.
-cd .. && mv typo3-extension-mediaoembed mediaoembed
+cd .. && mv typo3-extension-logout_info logout_info
 
 if [ -z "$TRAVIS_TAG" ]; then
     echo "No Travis tag is available. Upload only runs for new tags."
@@ -35,6 +35,6 @@ composer create-project --no-dev namelesscoder/typo3-repository-client typo3-rep
 
 echo "Uploading release ${TRAVIS_TAG} to TER"
 
-./typo3-repository-client/bin/setversion ${TRAVIS_TAG} stable mediaoembed
+./typo3-repository-client/bin/setversion ${TRAVIS_TAG} stable logout_info
 
-./typo3-repository-client/bin/upload mediaoembed "$TYPO3_ORG_USERNAME" "$TYPO3_ORG_PASSWORD" "$TAG_MESSAGE"
+./typo3-repository-client/bin/upload logout_info "$TYPO3_ORG_USERNAME" "$TYPO3_ORG_PASSWORD" "$TAG_MESSAGE"
