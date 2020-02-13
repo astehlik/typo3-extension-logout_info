@@ -2,13 +2,12 @@
 	"name": "de-swebhosting-typo3-extension/logout-info",
 	"description": "Writes the reason of Backend logouts to the Backend log.",
 	"type": "typo3-cms-extension",
-	"license": "GPL-3.0+",
+	"license": "GPL-3.0-or-later",
 	"require": {
 		"php": ">=7.1.0",
 		"typo3/cms-core": "^9.3"
 	},
 	"replace": {
-		"logout_info": "self.version",
 		"typo3-ter/logout-info": "self.version"
 	},
 	"require-dev": {
